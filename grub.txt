@@ -1,0 +1,15 @@
+menuentry "Arch" {
+        insmod part_gpt
+        insmod btrfs
+        insmod ext2
+        set root='hd0,gpt6'
+        configfile /boot/grub/grub.cfg
+}
+
+menuentry "Windows 11" {
+        savedefault
+        insmod part_gpt
+        insmod fat
+        set root=(hd0,gpt1)
+        chainloader (${root})/EFI/Microsoft/Boot/bootmgfw.efi
+}

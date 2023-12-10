@@ -1,0 +1,66 @@
+setfont ter-v22b
+passwd
+ip a
+timedatectl
+
+cfdisk
+
+mkfs.ext4 /dev/vda2
+mkfs.fat -F 32 /dev/vda1
+
+mount /dev/vda2 /mnt
+mkdir -p /mnt/boot/efi
+mount /dev/vda1 /mnt/boot/efi
+
+pacstrap -K /mnt base linux linux-firmware
+
+genfstab -U /mnt >> /mnt/etc/fstab
+arch-chroot /mnt
+pacman -S e2fsprogs dosfstools networkmanager nano man-db man-pages texinfo terminus-font xorg openssh
+pacman -S --needed base-devel
+
+ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime
+hwclock --systohc
+nano /etc/locale.gen
+locale-gen
+
+#nano /etc/locale.conf
+echo "LANG=en_US.UTF-8" >> /etc/locale.conf
+
+#nano /etc/vconsole.conf
+echo "FONT=ter-v22b" >> /etc/vconsole.conf
+
+nano /etc/hostname
+systemctl enable NetworkManager
+systemctl enable sshd
+
+###passwd
+mkinitcpio -P
+useradd -m -G wheel ian
+passwd ian
+EDITOR=nano visudo
+# /etc/sudoers
+
+pacman -S grub efibootmgr
+grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch
+grub-mkconfig -o /boot/grub/grub.cfg
+
+exit
+umount -R /mnt
+
+Server = http://mirror.yandex.ru/archlinux/$repo/os/$arch
+Server = https://mirror.yandex.ru/archlinux/$repo/os/$arch
+Server = http://mirror.rol.ru/archlinux/$repo/os/$arch
+Server = https://mirror.rol.ru/archlinux/$repo/os/$arch
+Server = https://europe.mirror.pkgbuild.com/$repo/os/$arch
+Server = https://arch.mirror.constant.com/$repo/os/$arch
+pacman -Syyu
+
+> ls /usr/share/fonts
+cmap  cMap  opentype  truetype  type1  X11
+> ls /usr/share/fonts/truetype/
+dejavu  droid  liberation  noto  terminus  ubuntu
+> ls .fonts/
+JetBrainsMono  MesloLGS
+
+
