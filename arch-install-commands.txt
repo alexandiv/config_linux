@@ -1,4 +1,5 @@
 setfont ter-v22b
+setfont ter-v32n
 passwd
 ip a
 timedatectl
@@ -16,9 +17,13 @@ pacstrap -K /mnt base linux linux-firmware
 
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
-pacman -S e2fsprogs dosfstools networkmanager nano man-db man-pages texinfo terminus-font xorg openssh
+pacman -S man-db man-pages texinfo
+pacman -S e2fsprogs dosfstools btrfs-progs networkmanager terminus-font openssh
 pacman -S --needed base-devel
+pacman -S rsync vim nano
 
+!! xorg
+!! kde
 ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime
 hwclock --systohc
 nano /etc/locale.gen
