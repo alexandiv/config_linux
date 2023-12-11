@@ -1,4 +1,4 @@
-setfont ter-v22b
+setfont ter-v24b
 setfont ter-v32n
 passwd
 ip a
@@ -6,12 +6,31 @@ timedatectl
 
 cfdisk
 
-mkfs.ext4 /dev/vda2
-mkfs.fat -F 32 /dev/vda1
+# /boot/efi
+mkfs.fat -F 32 /dev/sda1
 
-mount /dev/vda2 /mnt
-mkdir -p /mnt/boot/efi
-mount /dev/vda1 /mnt/boot/efi
+# /boot
+mkfs.ext4 -L "label" /dev/sda2
+
+# btrfs subvolumes
+mkfs.btrfs -L "label" /dev/sda3
+mount /dev/sda3 /mnt
+btrfs subvolume create /mnt/@
+umount /mnt
+
+# mount /
+## ssd autodetected
+## space_cache default to v2
+## discard=async default since 6.2
+mount -o rw,noatime,compress=lzo,subvol=@ /dev/sda3 /mnt
+
+# mount /boot
+mkdir /mnt/boot
+mount /dev/sda2 /mnt/boot
+
+# mount /boot/efi
+mkdir /mnt/boot/efi
+mount /dev/sda1 /mnt/boot/efi
 
 pacstrap -K /mnt base linux linux-firmware
 
@@ -20,7 +39,7 @@ arch-chroot /mnt
 pacman -S man-db man-pages texinfo
 pacman -S e2fsprogs dosfstools btrfs-progs networkmanager terminus-font openssh
 pacman -S --needed base-devel
-pacman -S rsync vim nano
+pacman -S rsync vim nano git cmake
 
 !! xorg
 !! kde
@@ -33,7 +52,7 @@ locale-gen
 echo "LANG=en_US.UTF-8" >> /etc/locale.conf
 
 #nano /etc/vconsole.conf
-echo "FONT=ter-v22b" >> /etc/vconsole.conf
+echo "FONT=ter-v24b" >> /etc/vconsole.conf
 
 nano /etc/hostname
 systemctl enable NetworkManager
@@ -41,8 +60,8 @@ systemctl enable sshd
 
 ###passwd
 mkinitcpio -P
-useradd -m -G wheel ian
-passwd ian
+useradd -m -G wheel admin
+passwd admin
 EDITOR=nano visudo
 # /etc/sudoers
 
