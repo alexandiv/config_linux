@@ -9,6 +9,9 @@ cfdisk
 # /boot/efi
 mkfs.fat -F 32 /dev/sda1
 
+# swap
+mkswap /dev/sdxy
+
 # /boot
 mkfs.ext4 -L "label" /dev/sda2
 
@@ -31,6 +34,9 @@ mount /dev/sda2 /mnt/boot
 # mount /boot/efi
 mkdir /mnt/boot/efi
 mount /dev/sda1 /mnt/boot/efi
+
+# swap on
+swapon /dev/sdxy
 
 pacstrap -K /mnt base linux linux-firmware
 
