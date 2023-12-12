@@ -43,9 +43,10 @@ pacstrap -K /mnt base linux linux-firmware
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
 pacman -S man-db man-pages texinfo
-pacman -S e2fsprogs dosfstools btrfs-progs networkmanager terminus-font openssh
+pacman -S e2fsprogs dosfstools btrfs-progs exfat-utils 
+pacman -S networkmanager terminus-font openssh
 pacman -S --needed base-devel
-pacman -S rsync vim nano git cmake
+pacman -S rsync vim nano git cmake wget 
 
 !! xorg
 !! kde
