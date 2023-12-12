@@ -1,0 +1,9 @@
+kde2 sudo pacman -S xorg
+kde3 sudo pacman -S plasma-meta plasma-wayland-session 
+
+kde5 sudo pacman -S kde-system-meta
+
+kde6 sudo pacman -S kmag gwenview kcolorchooser kdegraphics-thumbnailers kolourpaint kruler okular spectacle svgpart
+kde7 sudo pacman -S dragon elisa ffmpegthumbs kmix
+kde8 sudo pacman -S kio-extras kio-gdrive krdc krfb
+kde9 sudo pacman -S dolphin-plugins kompare kcharselect kclock kcalc kfind konsole print-manager
