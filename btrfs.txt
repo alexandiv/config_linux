@@ -1,3 +1,5 @@
+mount /dev/sda3 /mnt
+
 btrfs subvolume create /mnt/@
 btrfs subvolume create /mnt/@home
 
