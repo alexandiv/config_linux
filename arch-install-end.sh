@@ -1,9 +1,9 @@
 # do it after arch-chroot
-pacman -S man-db man-pages texinfo
-pacman -S e2fsprogs dosfstools btrfs-progs exfat-utils 
-pacman -S networkmanager terminus-font openssh
-pacman -S rsync vim nano git cmake wget 
-pacman -S --needed base-devel
+pacman -Sy man-db man-pages texinfo
+pacman -Sy e2fsprogs dosfstools btrfs-progs exfat-utils 
+pacman -Sy networkmanager terminus-font openssh
+pacman -Sy rsync nano git cmake wget 
+pacman -Sy --needed base-devel
 
 ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime
 hwclock --systohc
@@ -19,7 +19,7 @@ systemctl enable NetworkManager
 mkinitcpio -P
 useradd -m -G wheel admin
 
-pacman -S grub efibootmgr
+pacman -Sy grub efibootmgr
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch
 grub-mkconfig -o /boot/grub/grub.cfg
 
@@ -27,6 +27,4 @@ echo "!!!!!!!!!!!!!!"
 echo "passwd admin"
 echo "EDITOR=nano visudo"
 echo "/etc/hostname"
-
-
 
