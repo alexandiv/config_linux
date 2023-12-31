@@ -4,6 +4,8 @@ GRUB_DISABLE_OS_PROBER=true
 GRUB_GFXMODE=auto
 GRUB_GFXPAYLOAD_LINUX=keep
 
+GRUB_ENABLE_BLSCFG=false
+
 menuentry "Arch" {
         insmod part_gpt
         insmod btrfs
