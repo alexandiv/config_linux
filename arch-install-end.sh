@@ -1,9 +1,9 @@
 # do it after arch-chroot
-pacman -Sy man-db man-pages texinfo
-pacman -Sy e2fsprogs dosfstools btrfs-progs exfat-utils 
-pacman -Sy networkmanager terminus-font openssh
-pacman -Sy rsync nano git cmake wget 
-pacman -Sy --needed base-devel
+pacman -S man-db man-pages texinfo
+pacman -S e2fsprogs dosfstools btrfs-progs exfat-utils 
+pacman -S networkmanager terminus-font openssh
+pacman -S rsync nano git cmake wget unzip unrar
+pacman -S --needed base-devel
 
 ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime
 hwclock --systohc
