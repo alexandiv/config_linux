@@ -21,3 +21,7 @@ menuentry "Windows 11" {
         set root=(hd0,gpt1)
         chainloader (${root})/EFI/Microsoft/Boot/bootmgfw.efi
 }
+
+# modules?
+sudo grub-install --recheck --no-rs-codes --modules="btrfs zstd part_gpt part_msdos"
+
