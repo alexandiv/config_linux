@@ -1,8 +1,12 @@
 sudo pacman -S xorg
-sudo pacman -S plasma-meta plasma-wayland-session kde-system-meta
+sudo pacman -S plasma-meta kde-system-meta
 sudo pacman -S ark unrar unzip dolphin-plugins kompare kcharselect kclock kcalc kfind konsole kate print-manager
 sudo pacman -S kmag gwenview kcolorchooser kdegraphics-thumbnailers kolourpaint kruler okular spectacle svgpart
-sudo pacman -S dragon kio-extras
+sudo pacman -S dragon kio-extras kio-admin kio-fuse baloo-widgets
+sudo pacman -S firefox
+
+exit
+!!!! plasma-wayland-session
 
     baloo-widgets (provides extra information for Dolphin's Information Panel when the Baloo file indexer is on)
     dolphin-plugins (provides a variety of useful plugins for Dolphin, including ISO mounting)
