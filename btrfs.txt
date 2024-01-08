@@ -10,3 +10,11 @@ btrfs subvolume snapshot -r /mnt/@ /mnt/@snapshot_name
 
 # remove read-only property
 sudo btrfs property set -ts /mnt/@install_refind ro false
+
+# size
+btrfs filesystem df /
+btrfs filesystem usage /
+
+# balance
+sudo btrfs balance start -dusage=90 /
+sudo btrfs balance status -v /
