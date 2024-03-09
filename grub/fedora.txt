@@ -1,0 +1,16 @@
+# /etc/default/grub
+GRUB_FONT=/boot/grub2/fonts/ter-u32n.pf2
+GRUB_DISABLE_OS_PROBER=true
+GRUB_SAVEDEFAULT=false
+GRUB_DEFAULT=0
+GRUB_TERMINAL_OUTPUT="gfxterm"
+GRUB_GFXMODE="3840x2160x32"
+GRUB_GFXPAYLOAD_LINUX=keep
+
+# setup grub environment
+sudo grub2-editenv list
+sudo grub2-editenv - unset menu_auto_hide
+
+# setup grub config
+sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+
