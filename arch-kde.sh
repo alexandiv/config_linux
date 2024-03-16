@@ -4,6 +4,7 @@ sudo pacman -S ark unrar unzip dolphin-plugins kompare kcharselect kclock kcalc 
 sudo pacman -S kmag gwenview kcolorchooser kdegraphics-thumbnailers kolourpaint kruler okular spectacle svgpart
 sudo pacman -S dragon kio-extras kio-admin kio-fuse baloo-widgets
 sudo pacman -S firefox
+sudo pacman -S kitty startup-notification
 
 exit
 !!!! plasma-wayland-session
