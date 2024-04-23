@@ -1,7 +1,10 @@
 {
-    "editor.fontFamily": "'CaskaydiaCove NF','JetBrainsMono NF Medium','MartianMono NF','Droid Sans Mono', 'monospace', monospace",
-    "workbench.colorTheme": "Default Dark+",
     "workbench.startupEditor": "none",
-    "editor.fontSize": 14.3,
-    "editor.lineHeight": 19
+    "workbench.colorTheme": "Catppuccin Mocha",
+    "catppuccin.accentColor": "flamingo",
+    "catppuccin.italicKeywords": false,
+    "editor.fontFamily": "'CaskaydiaCove NF', 'JetBrainsMono NF Medium', 'monospace', monospace",
+    "editor.fontSize": 15.0,
+    "editor.lineHeight": 19,
+    "security.workspace.trust.untrustedFiles": "open"
 }
