@@ -1,0 +1,29 @@
+#
+format = """
+$username\
+$hostname\
+$directory\
+$cmd_duration\
+$line_break\
+$character"""
+
+# Inserts a blank line between shell prompts
+add_newline = true
+
+[hostname]
+ssh_only = false
+format = '[$ssh_symbol$hostname]($style) '
+style = 'bold green'
+
+[username]
+show_always = true
+format = '[$user]($style)@'
+style_user = 'bold green'
+
+[directory]
+truncation_length = 10
+truncation_symbol = '…/'
+
+[cmd_duration]
+min_time = 5000
+format = '\[[⏱ $duration]($style)\]'
