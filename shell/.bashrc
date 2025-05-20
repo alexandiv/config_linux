@@ -1,0 +1,79 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+    . /etc/bashrc
+fi
+
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+# User specific aliases and functions
+if [ -d ~/.bashrc.d ]; then
+    for rc in ~/.bashrc.d/*; do
+        if [ -f "$rc" ]; then
+            . "$rc"
+        fi
+    done
+fi
+unset rc
+
+# Starship shell
+eval "$(starship init bash)"
+
+#
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+    . /etc/bashrc
+fi
+
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+# User specific aliases and functions
+if [ -d ~/.bashrc.d ]; then
+    for rc in ~/.bashrc.d/*; do
+        if [ -f "$rc" ]; then
+            . "$rc"
+        fi
+    done
+fi
+unset rc
+
+#
+#alias ls='ls -G --color=auto'
+alias la='ls -a --color=auto'
+alias ll='ls -l --color=auto'
+
+#color man
+#export PAGER="most"
+
+# Geant4
+g4data=/home/ian/Documents/geant4/data
+export G4ABLADATA=$g4data/G4ABLA3.3
+export G4ENSDFSTATEDATA=$g4data/G4ENSDFSTATE2.3
+export G4INCLDATA=$g4data/G4INCL1.2
+export G4LEDATA=$g4data/G4EMLOW8.5
+export G4LEVELGAMMADATA=$g4data/PhotonEvaporation5.7
+export G4NEUTRONHPDATA=$g4data/G4NDL4.7.1
+export G4PARTICLEXSDATA=$g4data/G4PARTICLEXS4.0
+export G4PIIDATA=$g4data/G4PII1.3
+export G4RADIOACTIVEDATA=$g4data/RadioactiveDecay5.6
+export G4REALSURFACEDATA=$g4data/RealSurface2.2
+export G4SAIDXSDATA=$g4data/G4SAIDDATA2.0
+unset g4data
+

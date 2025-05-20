@@ -1,10 +1,45 @@
 {
+    "security.workspace.trust.enabled": false,
     "workbench.startupEditor": "none",
-    "workbench.colorTheme": "Catppuccin Latte",
-    "catppuccin.accentColor": "flamingo",
-    "catppuccin.italicKeywords": false,
-    "editor.fontFamily": "'CaskaydiaCove NF', 'JetBrainsMono NF Medium', 'monospace', monospace",
-    "editor.fontSize": 15.0,
+    "window.zoomLevel": 1.1,
+    //"editor.fontFamily": "'Cascadia Code', Menlo, 'SF Mono', Monaco, 'Courier New', monospace",
+    "editor.fontFamily": "'JetBrains Mono', Menlo, 'SF Mono', Monaco, 'Courier New', monospace",
+    "editor.fontSize": 14,
     "editor.lineHeight": 19,
-    "security.workspace.trust.untrustedFiles": "open"
+    "editor.matchBrackets": "near",
+    "editor.bracketPairColorization.enabled": false,
+    "editor.fontLigatures": true,
+    "editor.minimap.enabled": false,
+    "editor.unicodeHighlight.nonBasicASCII": false,
+    // "editor.quickSuggestions": {
+    //     "other": "off",
+    //     "comments": "off",
+    //     "strings": "off"
+    // },
+    // "editor.hover.enabled": false,
+    // "editor.parameterHints.enabled": false,
+    // "editor.acceptSuggestionOnCommitCharacter": false,
+    //"terminal.integrated.fontFamily": "'Cascadia Code', Menlo, 'SF Mono', Monaco, 'Courier New', monospace",
+    "terminal.integrated.fontFamily": "'JetBrains Mono', Menlo, 'SF Mono', Monaco, 'Courier New', monospace",
+    "terminal.integrated.fontSize": 13,
+    //"debug.console.fontFamily": "'Cascadia Code', Menlo, 'SF Mono', Monaco, 'Courier New', monospace",    
+    "debug.console.fontFamily": "'JetBrains Mono', Menlo, 'SF Mono', Monaco, 'Courier New', monospace",
+    "debug.console.fontSize": 13,
+    "cmake.showOptionsMovedNotification": false,
+    "editor.cursorStyle": "block",
+    "cmake.configureOnOpen": false,
+    "cmake.debugConfig": {
+        "cwd": "${workspaceFolder}"
+    },
+    // "cmake.parallelJobs": 1,
+    // "files.encoding": "windows1251"
+    // "catppuccin.italicKeywords": false,
+    // "catppuccin.italicComments": false,
+    // "catppuccin.colorOverrides": {
+    //     "mocha": {
+    //         "base": "#282229",
+    //         "mantle": "#363038",
+    //         "crust": "#1b191c",
+    //     },
+    // }
 }
