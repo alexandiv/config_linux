@@ -1,0 +1,3 @@
+git config --global user.email "alexandiv@yandex.ru"
+git config --global user.name "alexandiv"
+
