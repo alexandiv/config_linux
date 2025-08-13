@@ -11,15 +11,20 @@ $character"""
 add_newline = true
 
 [hostname]
-ssh_only = false
+ssh_only = true
 format = '[$hostname]($style) '
 style = 'bold green'
 
 [username]
-show_always = true
+show_always = false
 format = '[$user]($style)@'
 style_user = 'bold green'
+
+[directory]
+truncation_length = 10
+truncation_symbol = '…/'
 
 [cmd_duration]
 min_time = 5000
 format = '\[[⏱ $duration]($style)\]'
+
