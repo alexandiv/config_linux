@@ -1,0 +1,17 @@
+// Place your key bindings in this file to override the defaults
+[
+    {
+        "key": "ctrl+escape",
+        "command": "workbench.action.togglePanel",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "cmd+j",
+        "command": "-workbench.action.togglePanel"
+    },
+    {
+        "key": "ctrl+f7",
+        "command": "cmake.compileFile",
+        "when": "editorTextFocus"
+    }
+]

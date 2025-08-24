@@ -1,0 +1,3 @@
+linearmouse - cmd+mousescroll
+blackhole - sound virtual device
+

@@ -1,0 +1,5 @@
+# Get the aliases and functions
+[ -r "$HOME/.bashrc" ] && . "$HOME/.bashrc"
+
+#
+#echo "profile" >> log
