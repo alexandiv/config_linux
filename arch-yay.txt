@@ -1,0 +1,8 @@
+pacman -S --needed git base-devel
+git clone https://aur.archlinux.org/yay-bin.git
+cd yay-bin
+makepkg -si
+
+#
+Use yay -Y --gendb to generate a development package database for *-git packages 
+that were installed without yay. This command should only be run once.

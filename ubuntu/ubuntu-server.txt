@@ -1,0 +1,28 @@
+    4  sudo apt install fonts-ubuntu-console 
+   56  sudo apt install build-essential 
+   59  sudo apt install gdb
+   60  sudo apt install cmake
+   61  sudo apt install manpages-dev
+   64  sudo apt install gfortran
+   85  sudo apt install intel-opencl-icd
+   86  sudo apt install clinfo
+  110  sudo apt install pocl-opencl-icd 
+  116  sudo apt install clang
+  118  sudo apt install clpeak 
+
+  sudo usermod -aG video,render $USER
+
+samba server with home directories
+----------------------------------
+
+sudo apt install samba
+sudo apt install smbclient
+
+cd /etc/samba/
+sudo cp smb.conf smb.conf.orig
+sudo nano smb.conf
+
+sudo systemctl status smbd
+sudo systemctl restart smbd nmbd
+sudo smbpasswd -a ian
+smbclient -L localhost -U ian

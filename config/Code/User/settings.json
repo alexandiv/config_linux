@@ -1,0 +1,41 @@
+{
+    "security.workspace.trust.enabled": false,
+    "workbench.startupEditor": "none",
+    "window.zoomLevel": 0.4,
+    "editor.fontFamily": "'JetBrainsMono NFM', Menlo, 'SF Mono', Monaco, 'Courier New', monospace",
+    "editor.fontSize": 13,
+    "editor.lineHeight": 18,
+    "editor.fontLigatures": true,
+    "editor.cursorStyle": "block",
+    "editor.minimap.enabled": false,
+    "editor.matchBrackets": "near",
+    "editor.bracketPairColorization.enabled": false,
+    "editor.unicodeHighlight.nonBasicASCII": false,
+    // "editor.quickSuggestions": {
+    //     "other": "off",
+    //     "comments": "off",
+    //     "strings": "off"
+    // },
+    // "editor.hover.enabled": false,
+    // "editor.parameterHints.enabled": false,
+    // "editor.acceptSuggestionOnCommitCharacter": false,
+    "terminal.integrated.fontFamily": "'JetBrainsMono NFM', Menlo, 'SF Mono', Monaco, 'Courier New', monospace",
+    "terminal.integrated.fontSize": 13,
+    "debug.console.fontFamily": "'JetBrainsMono NFM', Menlo, 'SF Mono', Monaco, 'Courier New', monospace",
+    "debug.console.fontSize": 13,
+    "cmake.configureOnOpen": false,
+    "cmake.debugConfig": {
+        "cwd": "${workspaceFolder}"
+    },
+    "cmake.parallelJobs": 1
+    // "files.encoding": "windows1251"
+    // "catppuccin.italicKeywords": false,
+    // "catppuccin.italicComments": false,
+    // "catppuccin.colorOverrides": {
+    //     "mocha": {
+    //         "base": "#282229",
+    //         "mantle": "#363038",
+    //         "crust": "#1b191c",
+    //     },
+    // }
+}

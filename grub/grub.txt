@@ -1,0 +1,34 @@
+GRUB_FONT=/boot/grub/fonts/ter-u32n.pf2
+GRUB_DISABLE_OS_PROBER=true
+
+GRUB_SAVEDEFAULT=false
+GRUB_DEFAULT=0
+
+GRUB_TERMINAL_OUTPUT="gfxterm"
+GRUB_GFXMODE="3840x2160x32"
+GRUB_GFXPAYLOAD_LINUX=keep
+
+GRUB_ENABLE_BLSCFG=false
+
+menuentry "Arch" {
+        insmod part_gpt
+        insmod btrfs
+        insmod ext2
+        set root='hd0,gpt6'
+        configfile /boot/grub/grub.cfg
+}
+
+menuentry "Windows 11" {
+        savedefault
+        insmod part_gpt
+        insmod fat
+        set root=(hd0,gpt1)
+        chainloader (${root})/EFI/Microsoft/Boot/bootmgfw.efi
+}
+
+# modules?
+sudo grub-install --recheck --no-rs-codes --modules="btrfs zstd part_gpt part_msdos"
+
+#
+sudo grub2-editenv list
+sudo grub2-editenv - unset menu_auto_hide

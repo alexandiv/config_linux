@@ -1,0 +1,97 @@
+setfont ter-v24b
+setfont ter-v32n
+passwd
+ip a
+timedatectl
+
+cfdisk
+
+# /boot/efi
+mkfs.fat -F 32 /dev/sda1
+
+# swap
+mkswap /dev/sdxy
+
+# /boot
+mkfs.ext4 -L "label" /dev/sda2
+
+# btrfs subvolumes
+mkfs.btrfs -L "label" /dev/sda3
+mount /dev/sda3 /mnt
+btrfs subvolume create /mnt/@
+umount /mnt
+
+# mount /
+## ssd autodetected
+## space_cache default to v2
+## discard=async default since 6.2
+mount -o rw,noatime,compress=lzo,subvol=@ /dev/sda3 /mnt
+
+# mount /boot
+mkdir /mnt/boot
+mount /dev/sda2 /mnt/boot
+
+# mount /boot/efi
+mkdir /mnt/boot/efi
+mount /dev/sda1 /mnt/boot/efi
+
+# swap on
+swapon /dev/sdxy
+
+pacstrap -K /mnt base linux linux-firmware
+
+genfstab -U /mnt >> /mnt/etc/fstab
+arch-chroot /mnt
+pacman -S man-db man-pages texinfo
+pacman -S e2fsprogs dosfstools btrfs-progs exfat-utils 
+pacman -S networkmanager terminus-font openssh
+pacman -S --needed base-devel
+pacman -S rsync vim nano git cmake wget 
+
+!! xorg
+!! kde
+ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime
+hwclock --systohc
+nano /etc/locale.gen
+locale-gen
+
+#nano /etc/locale.conf
+echo "LANG=en_US.UTF-8" >> /etc/locale.conf
+
+#nano /etc/vconsole.conf
+echo "FONT=ter-v24b" >> /etc/vconsole.conf
+
+nano /etc/hostname
+systemctl enable NetworkManager
+systemctl enable sshd
+
+###passwd
+mkinitcpio -P
+useradd -m -G wheel admin
+passwd admin
+EDITOR=nano visudo
+# /etc/sudoers
+
+pacman -S grub efibootmgr
+grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch
+grub-mkconfig -o /boot/grub/grub.cfg
+
+exit
+umount -R /mnt
+
+Server = http://mirror.yandex.ru/archlinux/$repo/os/$arch
+Server = https://mirror.yandex.ru/archlinux/$repo/os/$arch
+Server = http://mirror.rol.ru/archlinux/$repo/os/$arch
+Server = https://mirror.rol.ru/archlinux/$repo/os/$arch
+Server = https://europe.mirror.pkgbuild.com/$repo/os/$arch
+Server = https://arch.mirror.constant.com/$repo/os/$arch
+pacman -Syyu
+
+> ls /usr/share/fonts
+cmap  cMap  opentype  truetype  type1  X11
+> ls /usr/share/fonts/truetype/
+dejavu  droid  liberation  noto  terminus  ubuntu
+> ls .fonts/
+JetBrainsMono  MesloLGS
+
+
