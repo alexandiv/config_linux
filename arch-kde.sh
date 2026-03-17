@@ -7,6 +7,14 @@ sudo pacman -S firefox
 sudo pacman -S kitty startup-notification
 
 exit
+   27  sudo pacman -S plasma-meta
+   29  sudo pacman -S kde-system-meta
+   30  sudo pacman -S kde-utilities-meta
+   31  sudo pacman -S kde-network-meta
+   32  sudo pacman -S vlc
+   33  sudo pacman -S gwenview kcolorchooser kdegraphics-thumbnailers kgraphviewer okular ffmpegthumbs dolphin-plugins kompare kitty
+
+exit
 !!!! plasma-wayland-session
 
     baloo-widgets (provides extra information for Dolphin's Information Panel when the Baloo file indexer is on)
