@@ -1,0 +1,36 @@
+#!/bin/bash
+#
+
+# Prompt
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
+eval "$(starship init bash)"
+
+#
+export EDITOR=vim
+
+# Aliases
+unalias -a
+alias ls='ls --color=auto'
+alias ll='ls -lF'
+alias la='LC_COLLATE=C ls -laF'
+alias grep='grep --color=auto'
+
+# Geant4
+g4data=$HOME/Documents/Geant4/builds/v11.3.2-data
+export G4ABLADATA=$g4data/G4ABLA3.3
+export G4ENSDFSTATEDATA=$g4data/G4ENSDFSTATE3.0
+export G4INCLDATA=$g4data/G4INCL1.2
+export G4LEDATA=$g4data/G4EMLOW8.6.1
+export G4LEVELGAMMADATA=$g4data/PhotonEvaporation6.1
+export G4NEUTRONHPDATA=$g4data/G4NDL4.7.1
+export G4PARTICLEXSDATA=$g4data/G4PARTICLEXS4.1
+export G4PIIDATA=$g4data/G4PII1.3
+export G4RADIOACTIVEDATA=$g4data/RadioactiveDecay6.1.2
+export G4REALSURFACEDATA=$g4data/RealSurface2.2
+export G4SAIDXSDATA=$g4data/G4SAIDDATA2.0
+export G4CHANNELINGDATA=$g4data/G4CHANNELING1.0
+unset g4data
+
+# Neovim
+export PATH=$PATH:/opt/nvim/bin
+alias vi="nvim"
