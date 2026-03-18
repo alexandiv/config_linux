@@ -14,35 +14,12 @@ exit
    32  sudo pacman -S vlc
    33  sudo pacman -S gwenview kcolorchooser kdegraphics-thumbnailers kgraphviewer okular ffmpegthumbs dolphin-plugins kompare kitty
 
-exit
-!!!! plasma-wayland-session
+exit# 1. Минимальное ядро Plasma (без лишних приложений)
+sudo pacman -S plasma-desktop
+# 2. Dolphin + полезные расширения
+sudo pacman -S dolphin kio-gdrive dolphin-plugins partitionmanager
+# 3. Просмотрщик изображений (лёгкий, из KDE)
+sudo pacman -S gwenview okular kompare kitty vlc ark kate konsole
+# 5. Дополнительные зависимости для превью в Dolphin
+sudo pacman -S kdegraphics-thumbnailers ffmpegthumbs kcolorchooser 
 
-    baloo-widgets (provides extra information for Dolphin's Information Panel when the Baloo file indexer is on)
-    dolphin-plugins (provides a variety of useful plugins for Dolphin, including ISO mounting)
-    ffmpegthumbs (provides video thumbnailing plugin)
-    kde-inotify-survey (warns when apps are using all inotify watches and prompts the user to raise it; this can help users understand why Baloo in particular isn't working properly, and offers them a way to fix it)
-    kdeconnect-kde (provides remote mobile phone control; also make sure to whitelist its system service in your firewall, if you ship one)
-    kdegraphics-thumbnailers (provides PDF thumbnailing plugin, among others)
-    kdenetwork-filesharing (provides the Samba file sharing setup wizard)
-    kdepim-addons (provides a variety of useful addons for the PIM suite; only needed if you pre-install the PIM suite!)
-    kio-admin (provides a safe way to edit files as root)
-    kio-extras (provides the thumbnailing engine and many thumbnailing plugins, among other things)
-    kio-fuse (provides transparent access to non-KDE apps for files on remote locations)
-    kio-gdrive (provides transparent KIO access to Google Drive)
-    libappindicator-gtk3 instead of the GTK2 variant for crisp status notifier systray icons. Note that this might break left click activation in the few apps that supported it in libappindicator, such as onboard.
-    phonon-vlc (this is the only maintained and supported Phonon backend for KDE apps that use Phonon for their multimedia needs; the alternative phonon-gstreamer has been unmaintained since 2013 and should not be shipped by default, or at all, ideally)
-    print-manager (provides the Printers KCM and widget)
-    xwaylandvideobridge (exposes Wayland windows to XWayland-using screen sharing apps)
-
-
-    iio-sensor-proxy (allows automatic screen rotation on Wayland)
-    noto-sans (provides the default font used for KDE software)
-    noto-color-emoji (provides color emojis)
-    maliit-keyboard (provides on-screen keyboard on Wayland)
-    power-profiles-daemon (enables the power profile functionality in Plasma. Make sure its systemd service is automatically started when the package is installed!)
-    switcheroo-control (provides proper hybrid/multi-GPU detection)
-    xdg-desktop-portal-gtk (syncs font settings to Flatpak apps when run in Plasma)
-    xsettingsd (GTK theme changes without restart; Flatpak GTK theming; and since 5.27, GTK/X11 HiDPI scaling)
-    orca (Screen reader for visually impaired users)
-    systemd-coredumpd (Global crash handler for drkonqi. Alternative handlers such as ABRT or apport can be used instead of drkonqi+coredumpd)
-    
